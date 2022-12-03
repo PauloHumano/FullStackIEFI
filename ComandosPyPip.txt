@@ -1,0 +1,51 @@
+revision paulo 24/10/2022
+
+Nota: En Windows se lanzan scripts 
+Python 3 añadiendo como prefijo del comando 
+con py -3, mientras que en Linux/Mac OSX, 
+el comando es python3
+https://developer.mozilla.org/es/docs/Learn/Server-side/Django/development_environment
+Advertencia: El resto de este modulo usa, para invocar Python 3, el comando Linux (python3) .
+ Si estás trabajando en Windows simplemente
+  reemplazar este prefijo con: py -3
+
+--en el bash $
+py -m pip --version
+py -m pip list
+py -m pip install virtualenv
+py -m virtualenv env
+source env/Scripts/activate
+
+--instalar biblioteca pip
+py -3 -m pip install Django
+py -3 -m pip list
+
+--crear proyecto 
+django-admin startproject AppDjangoNotasRapidas
+
+--dentro de la carpeta del Proyecto
+--tiene que estar prendido XAMP apache y sql
+cd AppDjangoNotasRapidas
+py -3 manage.py runserver
+--http://127.0.0.1:8000/
+--para abrir el vinculo Ctrl+Click
+par salir de runserver
+Quit the server with CONTROL-C
+$ py -3 -m pip install djangorestframework
+$ py -3 pip install mysqlclient
+https://pypi.org/project/mysqlclient/
+
+$ py -3 manage.py startapp heroes
+$ py -3 manage.py makemigrations
+$ py -3 manage.py migrate
+$ py -3 manage.py createsuperuser
+Username (leave blank to use 'pauloangel'): admin
+Email address: paulohumano@hotmail.com
+Password:2019Cleopatra
+$ py -3 manage.py migrate
+py -3 manage.py runserver
+
+--al finalizar se guardan las librerias
+$ pip freeze > requeriment.txt
+--para poder intalar de cero 
+pip install -r requirements.txt
