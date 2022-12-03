@@ -1,0 +1,77 @@
+Instancia Evaluativa Final Integradora
+Proyecto Final IntegradorTarea
+
+Hola gente, a continuación les dejamos la consigna referida al proyecto final. El cual tiene por finalidad dar fe de los conocimientos adquiridos a lo largo del curso. 
+
+
+Situación:
+
+Han sido contratados por un cliente, que desea llevar a cabo el desarrollo de una aplicación web. La cual, está destinada a la toma de notas rápidas por parte de los usuarios. El sistema deberá contar con las siguientes funcionalidades establecidas por el cliente:
+
+Se podrán registrar y eliminar usuarios.
+
+Cada usuario podrá interactuar solo con sus notas, las cuales podrán ser: creadas, vistas, editadas e incluso eliminadas.
+
+
+Al mismo tiempo, el cliente desearía poder ampliar las funcionalidades de la app, agregando un sistema de tags al estilo “ToDo List”. Dicha feature, no está contemplada para ser desarrollada en el corriente sprint, pero sería un improvement muy valorado por parte del cliente.
+
+
+Pautas  generales para la actividad:
+
+El proyecto se puede realizar de manera individual o en duplas*.
+
+El proyecto debe ser traqueado por git. Dicho seguimiento deberá plasmar el avance en el desarrollo.
+
+Deberán crear un repositorio para albergar el proyecto completo (tanto Front como Back) y adjuntar el link al mismo.
+
+Deberán documentar el proyecto (aunque sea de una forma mínima).
+
+
+* En caso de realizar el trabajo de manera grupal, ambos integrantes deberán trabajar de manera equilibrada tanto en el front como en el back, siendo los commits la prueba de ello. Esto quiere decir que no se aceptará que un solo estudiante se encargue del back y que el otro sea el responsable del front. Ambos deberán abarcar ambas modalidades. 
+
+
+Pautas para el Back:
+
+Crear como mínimo dos tablas de bases de datos y establecer por lo menos una relación entre entidades.
+
+
+Pautas para el Front:
+
+Desarrollar la capa de interacción entre el usuario y el back empleando React.
+
+Pueden hacer uso de los componentes de bootstrap.
+
+
+Entrega:
+
+Para la entrega, deben recordar que todo deberá estar alojado en el mismo repositorio de gitHub y compartirnos el link al mismo. Dicho repo, deberá contar con lo siguiente:
+
+Carpeta del proyecto general.
+
+Readme con indicaciones para la instalación y puesta en marcha del proyecto completo.
+
+.gitignore
+
+Archivos SQL para importar las bases de datos.
+
+*Al mismo tiempo, les recordamos que ambos miembros de la dupla deberán realizar la entrega e indicar quienes son los integrantes.
+
+
+Criterios de evaluación:
+
+Funcionamiento del proyecto (fundamental que ande).
+
+Uso de buenas prácticas (en lo posible).
+
+
+Algunas aclaraciones: 
+
+Recuerden que pueden hacer uso de todo el material visto a lo largo del curso.
+
+No es necesario que realicen un Scrum Board.
+
+Sean prácticos a la hora de programar (la opción más sencilla, generalmente es la mejor…)
+
+No tengan miedo de preguntar e indagar.
+
+
