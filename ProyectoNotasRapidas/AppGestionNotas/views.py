@@ -10,8 +10,8 @@ from django.contrib.auth.forms import UserCreationForm
 def feed(request):
     posts = Post.object.all()
 
-    context = {'posts': posts}
-    return render(request, 'social/feed.html', context)
+    context = {'notasrapidas': posts}
+    return render(request, 'AppGestionNotas/feed.html', context)
 
 
 def register(request):
@@ -24,11 +24,11 @@ def register(request):
             form = UserCreationForm()
 
         context = {'form': form}
-        return render(request, 'social/register.html', context)
+        return render(request, 'AppGestionNotas/register.html', context)
 
 
 def profile(request):
-    return render(request, 'social/profile.html')
+    return render(request, 'AppGestionNotas/profile.html')
 
 
 def saludo(request):  # primera vista

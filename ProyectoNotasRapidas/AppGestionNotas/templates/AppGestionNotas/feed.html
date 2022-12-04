@@ -1,16 +1,14 @@
-{% extends 'social/layout.html' %}
-
-{% block content %}
+{% extends 'AppGestionNotas/layout.html' %} {% block content %} {% for post in
+posts %}
 <article>
-    <div class="container-article">
-        <img src="../../static/batman.png">
-        <div>
-            <h2 class="username"><a href="#">@batman</a></h2>
-            <i class="clock"></i>
-            <time data-time="#">5 seconds ago</time>
-            <div class="post">Hello, Gotham!</div>
-        </div>
+  <div class="container-article">
+    <img src="../../static/batman.png" />
+    <div>
+      <h2 class="username"><a href="#">@{{post.usuer.username}}</a></h2>
+      <i class="clock"></i>
+      <time data-time="#">{{ post.timestamp}}</time>
+      <div class="post">{{post.content}}</div>
     </div>
+  </div>
 </article>
-
-{% endblock %}
+{% endfor %} {% endblock %}
