@@ -26,7 +26,12 @@ django-admin startproject ProyectoNotasRapidas
 --dentro de la carpeta del Proyecto
 --tiene que estar prendido XAMP apache y sql
 cd ProyectoNotasRapidas
+py -3 manage.py makemigrations
 py -3 manage.py migrate
+py -3 manage.py createsuperuser
+Username (leave blank to use 'pauloangel'): admin
+Email address: paulohumano@hotmail.com
+Password:AdminAdmin
 py -3 manage.py runserver
 --http://127.0.0.1:8000/
 --para abrir el vinculo Ctrl+Click
@@ -39,14 +44,13 @@ https://pypi.org/project/mysqlclient/
 $ py -3 manage.py startapp heroes
 $ py -3 manage.py makemigrations
 $ py -3 manage.py migrate
-$ py -3 manage.py createsuperuser
-Username (leave blank to use 'pauloangel'): admin
-Email address: paulohumano@hotmail.com
-Password:2019Cleopatra
-$ py -3 manage.py migrate
 py -3 manage.py runserver
 
 --al finalizar se guardan las librerias
 $ pip freeze > requeriment.txt
 --para poder intalar de cero 
 pip install -r requirements.txt
+
+Installing collected packages: autopep8
+  WARNING: Failed to write executable - trying to use .deleteme logic
+ERROR: Could not install packages due to an OSError: [WinError 2] El sistema no puede encontrar el archivo especificado: 'C:\\Python311\\Scripts\\autopep8.exe' -> 'C:\\Python311\\Scripts\\autopep8.exe.deleteme'
