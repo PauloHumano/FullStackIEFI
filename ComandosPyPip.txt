@@ -21,18 +21,19 @@ py -3 -m pip install Django
 py -3 -m pip list
 
 --crear proyecto 
-django-admin startproject AppDjangoNotasRapidas
+django-admin startproject ProyectoNotasRapidas
 
 --dentro de la carpeta del Proyecto
 --tiene que estar prendido XAMP apache y sql
-cd AppDjangoNotasRapidas
+cd ProyectoNotasRapidas
+py -3 manage.py migrate
 py -3 manage.py runserver
 --http://127.0.0.1:8000/
 --para abrir el vinculo Ctrl+Click
 par salir de runserver
 Quit the server with CONTROL-C
-$ py -3 -m pip install djangorestframework
-$ py -3 pip install mysqlclient
+py -3 -m pip install djangorestframework
+py -3 pip install mysqlclient
 https://pypi.org/project/mysqlclient/
 
 $ py -3 manage.py startapp heroes
