@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 
-def saludo(request): #primera vista
-  
-  return HttpResponse("hola")
+
+def saludo(request):  # primera vista
+
+    return HttpResponse("hola")

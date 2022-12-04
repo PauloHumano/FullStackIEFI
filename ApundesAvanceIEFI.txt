@@ -1,0 +1,8 @@
+quede aqui para crear register.html
+Curso de django 2020: Registro y login
+ de usuarios (parte 4)
+3:57
+https://www.youtube.com/watch?v=y9nb0QGFl5I
+debo volver al inicio de cracion de los statics,
+ templates y html
+ 
