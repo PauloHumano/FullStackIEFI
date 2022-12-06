@@ -15,12 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from ProyectoNotasRapidas.views import saludo
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('AppGestionNotas.urls')),
-    path('saludo/', saludo),
+    path('usuario/', include('AppGestionNotas.urls')),
 ]
 """Add Django site authentication urls (for login, logout, password management)
 urlpatterns += [

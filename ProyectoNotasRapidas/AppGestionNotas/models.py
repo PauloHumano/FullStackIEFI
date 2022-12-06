@@ -6,7 +6,8 @@ from django.utils import timezone
 # Create your models here.
 
 
-class Profile(models.Model):
+class User(models.Model):
+    id = models.AutoField(primary_key=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def __str__(self):
