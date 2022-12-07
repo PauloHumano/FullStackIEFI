@@ -1,5 +1,16 @@
 quede aqui para crear las api de login
 
-https://www.youtube.com/watch?v=kh4YFQrvVyE&t=56s
- Taller 6. Django Rest Framework | Autenticacion via Token 
- - Login y Logout
+https://www.youtube.com/watch?v=2sbA5yZXOPI
+2- Curso de Django Básico - Modelos - Parte 1
+
+https://www.youtube.com/watch?v=P7hN257vuco
+3- Curso Django Básico - Formularios
+
+https://www.youtube.com/watch?v=zGXvcxQ6sSw
+4- Curso Básico de Django - Guardar Formulario
+ y Templates 1
+
+ https://www.youtube.com/watch?v=eZQAGJ-K3DQ
+ Renderizado básico de un template en Django
+ 
+

@@ -38,7 +38,8 @@ BASE_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework'
+    'rest_framework',
+    'rest_framework.authtoken'
 ]
 
 LOCAL_APPS = [
@@ -73,9 +74,8 @@ ROOT_URLCONF = 'ProyectoNotasRapidas.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            BASE_DIR / 'AppGestionNotas/templates/AppGestionNotas/'
-        ],
+        'DIRS': [Path.joinpath(BASE_DIR, 'templates')
+                 ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

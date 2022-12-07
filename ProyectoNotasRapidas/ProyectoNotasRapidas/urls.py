@@ -15,11 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from AppGestionNotas.views import *
+
+from rest_framework.authtoken import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('usuario/', include('AppGestionNotas.urls')),
+    path('proyectonotasrapidas/', show_index),
+    path('login/', Login.as_view()),
+    path('logout/', Logout.as_view()),
+    path('usuario/', include('AppGestionNotas.urls'))]
+
+urlpatterns += [
+    path('api-token-auth/', views.obtain_auth_token)
 ]
+
 """Add Django site authentication urls (for login, logout, password management)
 urlpatterns += [
     path('accounts/', include('django.contrib.auth.urls')),
