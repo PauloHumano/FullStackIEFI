@@ -4,11 +4,11 @@ from django.utils import timezone
 
 
 # Create your models here.
+# ClassPost --- ClassNota
 
-
-class User(models.Model):
-    id = models.AutoField(primary_key=True)
+class Perfil(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    # no imagen
 
     def __str__(self):
         return f'Perfil de {self.user.username}'

@@ -1,20 +1,21 @@
 # Django
-from django.shortcuts import render, redirect
-from django.views.generic import TemplateView
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
+from django.shortcuts import render  # , redirect
 from django.urls import reverse_lazy
+from django.views.generic import TemplateView
 
-from django.http import HttpResponse
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .forms import *
+from .forms import UserRegisterForm
 from .models import *
 from .serializers import *
 
 """
-from django.contrib import messages
+from django.http import HttpResponse, HttpResponseRedirect
 from django.decorators.csrf import csrf_protect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
@@ -28,8 +29,32 @@ from AppGestionNotas.serializers import *
 # Create your views here.
 
 
+def feed(request):
+    notas = Nota.objects.all()
+
+    context = {'notas': notas}
+    return render(request, 'AppGestionNotas/feed.html')
+
+
+def register(request):
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            messages.success(request, f'Usuario {username} creado')
+    else:
+        form = UserCreationForm()
+
+    context = {'form': form}
+    return render(request, 'appgestionnotas/register.html', context)
+
+
+def profile(request):
+    return render(request, 'AppGestionNotas/profile.html')
+
+
 def show_index(request):
-    render(request, 'index.html')
+    render(request, 'base/index.html')
 
 # login, logout, loginRequiredMixin
 
@@ -46,19 +71,6 @@ class Logout(LogoutView):
 class Main(LoginRequiredMixin, TemplateView):
     login_url = reverse_lazy('login')
     template_name = 'main.html'
-
-
-def vUser(request):
-    if request.method == 'POST':
-        form = fUser(data=request.POST)
-        if form.is_valid():
-            form.save()
-            print('el formulario ha sido guardado')
-        else:
-            print('el formulario no es valido')
-    else:
-        form = fUser2()
-    return render(request, 'perfil.html')
 
 
 class UserAPIVIEW(APIView):

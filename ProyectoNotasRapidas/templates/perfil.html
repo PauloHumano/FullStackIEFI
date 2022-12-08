@@ -1,10 +1,7 @@
-{% include 'base/base.html'%}
-{% block title %}Bloque Perfil{% endblock %}
-{%block body %}
-{% endblock %}
+{% include 'base/base.html'%} {% block title %}Bloque Perfil{% endblock %}
+{%block body %} {% endblock %}
 
-<form method="post"
-  {% csrf_token %}
-  {{form.as_p}}
+<form method="post">
+  {% csrf_token %} {{form.as_p}}
   <button type="submit">Enviar</button>
-  </form>
+</form>
