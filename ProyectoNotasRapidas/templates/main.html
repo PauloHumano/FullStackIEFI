@@ -1,0 +1,9 @@
+{% extends 'base/base.html' %} {% block body %}
+<div class="container p-5">
+  <h1 class="text-center">Bienvenido a la pagina principal</h1>
+  <br />
+  <p class="text-center">
+    <a class="text-secondary" href="{% url 'logout' %}">Cerrar Sesion</a>
+  </p>
+</div>
+{% endblock %}

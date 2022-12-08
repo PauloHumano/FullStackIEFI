@@ -22,8 +22,9 @@ from rest_framework.authtoken import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('proyectonotasrapidas/', show_index),
-    path('login/', Login.as_view()),
-    path('logout/', Logout.as_view()),
+    path('login/', Login.as_view(), name='login'),
+    path('logout/', Logout.as_view(), name='logout'),
+    path('main/', Main.as_view(), name='main'),
     path('usuario/', include('AppGestionNotas.urls'))]
 
 urlpatterns += [

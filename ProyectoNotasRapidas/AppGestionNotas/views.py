@@ -38,9 +38,15 @@ class Login(LoginView):
     next_page = reverse_lazy('main')
     template_name = 'login.html'
 
+
 class Logout(LogoutView):
-    next_page= reverse_lazy('login')
-    
+    next_page = reverse_lazy('login')
+
+
+class Main(LoginRequiredMixin, TemplateView):
+    login_url = reverse_lazy('login')
+    template_name = 'main.html'
+
 
 def vUser(request):
     if request.method == 'POST':
