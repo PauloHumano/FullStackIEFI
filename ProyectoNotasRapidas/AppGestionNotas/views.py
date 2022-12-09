@@ -28,6 +28,12 @@ from AppGestionNotas.serializers import *
 # Create your views here.
 
 
+def gestionrapida(request):
+    notas = Nota.objects.all()
+    context = {'notas': notas}
+    return render(request, "AppGestionNotas/gestionrapida.html", context)
+
+
 def feed(request):
     notas = Nota.objects.all()
 

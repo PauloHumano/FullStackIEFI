@@ -25,7 +25,7 @@ urlpatterns = [
     path('index/', show_index),
     path('login/', Login.as_view(), name='login'),
     path('post/', Nota, name='post'),
-
+    path('gestionrapida/', gestionrapida, name='gestionrapida'),
     path('logout/', Logout.as_view(), name='logout'),
     path('main/', Main.as_view(), name='main'),]
 

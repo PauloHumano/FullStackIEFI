@@ -12,7 +12,8 @@
         <time data-time="#">{{ post.timestamp }}</time>
       </div>
       <div class="post">{{ post.content }}</div>
+      {% endfor %}
     </div>
   </div>
 </article>
-{% endfor %} {% block content %}{% endblock %}
+{% block content %}{% endblock %}
