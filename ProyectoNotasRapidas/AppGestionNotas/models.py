@@ -16,7 +16,7 @@ class Perfil(models.Model):
 
 class Nota(models.Model):
     user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='notas')
+        User, on_delete=models.CASCADE, related_name='usernotas')
     timestamp = models.DateTimeField(default=timezone.now)
     content = models.TextField()
 

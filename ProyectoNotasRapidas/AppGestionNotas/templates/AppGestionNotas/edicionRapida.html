@@ -1,0 +1,50 @@
+{% extends "base/base.html" %}{% load static %} {% block title %} Edicion de
+Notas Rapidas de {% endblock %} {% block body %}
+<div class="row">
+  <div class="col-md4 offset-md-4">
+    <h2>{{user.username}} estas editando aqui</h2>
+    <div class="card">
+      <div class="card-body">
+        <form action="/editarNota" method="POST">
+          {% csrf_token %}{{form.as_p}}
+          <div class="form-group">
+            <input
+              type="username"
+              id="username"
+              name="username"
+              value="{{nota.username}}"
+              class="form-control"
+              placeholder="username"
+              readonly />
+          </div>
+          <div class="form-group">
+            <input
+              type="datetimestamp"
+              id="datetimestamp"
+              name="datetimestamp"
+              value="{{nota.datetimestamp}}"
+              class="form-control"
+              placeholder="datetimestamp"
+              required />
+          </div>
+          <div class="form-group">
+            <input
+              type="content"
+              id="conten"
+              name="content"
+              value="{{nota.content}}"
+              class="form-control"
+              placeholder="content"
+              required />
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-success btn-block">
+              Guardar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+</div>

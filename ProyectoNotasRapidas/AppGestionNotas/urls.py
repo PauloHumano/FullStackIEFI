@@ -26,6 +26,10 @@ urlpatterns = [
     path('feed/', views.feed, name='feed'),
     path('profile/', views.profile, name='profile'),
     path('register/', views.register, name='register'),
+    path('registrarNota/', views.registrarNota, name='registrarNota'),
+    path('editarNota/', views.editarNota, name='registrarNota'),
+    path('edicionNota/<content>', views.edicionNota, name='edicionNota'),
+    path('eliminarNota/<content>', views.eliminarNota, name='eliminarNota'),
     path('usuario/', UserAPIVIEW.as_view(), name='usuario_api'),
     path('list/', UserList.as_view(), name='usuario_list'),
 ]

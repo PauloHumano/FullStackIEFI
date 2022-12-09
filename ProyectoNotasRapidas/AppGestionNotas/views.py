@@ -28,10 +28,54 @@ from AppGestionNotas.serializers import *
 # Create your views here.
 
 
+def show_index(request):
+    return render(request, 'base/index.html')
+
+
 def gestionrapida(request):
     notas = Nota.objects.all()
     context = {'notas': notas}
     return render(request, "AppGestionNotas/gestionrapida.html", context)
+
+
+def registrarNota(request):
+    username = request.post['username']
+    timestamp = request.POST['timestamp']
+    content = request.POST['content']
+
+    nota = Nota.objects.create(
+        username=username,
+        timestamp=timestamp,
+        content=content
+    )
+    return redirect('/')
+
+
+def edicionNota(request, username):
+    username = request.post['username']
+    nota = Nota.objects.get(username=username)
+    context = {"nota": nota}
+    return render(request, "edicionNota.html", context)
+
+
+def editarNota(request):
+    username = request.post['username']
+    timestamp = request.POST['timestamp']
+    content = request.POST['content']
+
+    nota = Nota.objects.get(username=username)
+    nota.timestamp = timestamp
+    nota.content = content
+    nota.save()
+
+    return redirect('/')
+
+
+def eliminarNota(request, username):
+    nota = Nota.objects.get(username=username)
+    Nota.delete()
+
+    return redirect('/')
 
 
 def feed(request):
@@ -72,10 +116,6 @@ def post(request):
 
 def profile(request):
     return render(request, 'AppGestionNotas/profile.html')
-
-
-def show_index(request):
-    return render(request, 'base/index.html')
 
 # login, logout, loginRequiredMixin
 
