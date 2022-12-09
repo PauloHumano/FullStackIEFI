@@ -1,5 +1,8 @@
-from django.apps import AppConfig as django_apps
+from django.apps import AppConfig
 
 
-class AppGestionNotasConfig(django_apps):
+class AppGestionNotasConfig(AppConfig):
     name = 'AppGestionNotas'
+
+    def ready(self):
+        import AppGestionNotas.signals
