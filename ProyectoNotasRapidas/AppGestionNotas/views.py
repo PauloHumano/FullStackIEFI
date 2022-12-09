@@ -32,7 +32,7 @@ def feed(request):
     notas = Nota.objects.all()
 
     context = {'notas': notas}
-    return render(request, 'AppGestionNotas/feed.html')
+    return render(request, 'AppGestionNotas/feed.html', context)
 
 
 def register(request):
