@@ -1,87 +1,84 @@
-{% extends "base/base.html" %}{% load static %} {% block title %} Gestion de
-Notas Rapidas de {% endblock %} {% block body %} {% csrf_token %} {{form.as_p}}
-<div>
-  <div class="row">
-    <div class="col-sm12 col-md6 col-lg4 col-xl-4">
-      <h2>Crear aqui</h2>
-      <div class="card">
-        <div class="card-body">
-          <form action="/registrarNota" method="POST">
-            {% csrf_token %}{{form.as_p}}
-            <div class="form-group">
-              <div class="form-group">
-                <input
-                  type="username"
-                  id="username"
-                  name="username"
-                  value="{{user.username}}"
-                  class="form-control"
-                  placeholder="username"
-                  readonly />
-              </div>
-              <input
-                type="datetime-local"
-                id="datetimestamp"
-                name="datetimestamp"
-                value="{{nota.datetimestamp}}"
-                class="form-control"
-                placeholder="datetimestamp"
-                required />
-            </div>
-            <div class="form-group">
-              <input
-                type="content"
-                id="conten"
-                name="content"
-                class="form-control"
-                placeholder="content"
-                required />
-            </div>
-            <div class="form-group">
-              <button type="submit" class="btn btn-success btn-block">
-                Guardar
-              </button>
-            </div>
-          </form>
-        </div>
+{% extends "base/base.html" %}{% load static %} {% block title %}
+GestionNotasRapidas {% endblock %} {% block body %}
+<div class="row">
+  <div class="col-sm12 col-md6 col-lg4 col-xl-4">
+    <h2>Crear aqui</h2>
+    <div class="card">
+      <div class="card-body">
+        <form action="/registrarNota" method="POST">
+          {% csrf_token %}{{form.as_p}}
+          <div class="form-group">
+            <input
+              type="username"
+              id="username"
+              name="username"
+              value="{{user.username}}"
+              class="form-control"
+              placeholder="username"
+              readonly />
+          </div>
+          <div>
+            <input
+              type="datetime-local"
+              id="datetimestamp"
+              name="datetimestamp"
+              value="{{nota.datetimestamp}}"
+              class="form-control"
+              placeholder="datetimestamp"
+              required />
+          </div>
+          <div class="form-group">
+            <input
+              type="content"
+              id="conten"
+              name="content"
+              class="form-control"
+              placeholder="content"
+              required />
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-success btn-block">
+              Guardar
+            </button>
+          </div>
+        </form>
       </div>
     </div>
-    <div class="col-sm12 col-md6 col-lg8 col-xl-8">
-      <h1>Listado de Notas</h1>
-      <div class="table-responsive" py-2>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>user</th>
-              <th>timestamp</th>
-              <th>content</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% csrf_token %} {{form.as_p}}{% for nota in notas%}
-            <tr>
-              <td>{{ post.user.username }}</td>
-              <td>{{ post.timestamp }}</td>
-              <td>{{ post.content }}</td>
-              <td>
-                <a
-                  href="edicion de nota/{{nota.notas.user.username}}"
-                  class="btn btn-info"
-                  >Editar</a
-                >
-              </td>
-              <td>
-                <a
-                  href="elininacion de nota/{{nota.notas.user.username}}"
-                  class="btn btn-danger"
-                  >Eliminar</a
-                >
-              </td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
+  </div>
+  <div class="col-sm12 col-md6 col-lg8 col-xl-8">
+    <h1>Listado de Notas</h1>
+    <div class="table-responsive" py-2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>timestamp</th>
+            <th>content</th>
+            <th colspan="2">opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for nota in notas%}
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{ nota.timestamp }}</td>
+            <td>{{ nota.content }}</td>
+            <td>
+              <a
+                href="edicion de nota/{{nota.notas.user.username}}"
+                class="btn btn-info"
+                >Editar</a
+              >
+              <a
+                href="elininacion de nota/{{nota.notas.user.username}}"
+                class="btn btn-danger"
+                >Eliminar</a
+              >
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

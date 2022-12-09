@@ -26,14 +26,19 @@ django-admin startproject ProyectoNotasRapidas
 
 --dentro de la carpeta del Proyecto
 --tiene que estar prendido XAMP apache y sql
+
 cd ProyectoNotasRapidas
+
 py -3 manage.py makemigrations
 py -3 manage.py migrate
+
 py -3 manage.py createsuperuser
 Username (leave blank to use 'pauloangel'): admin
 Email address: paulohumano@hotmail.com
 Password:AdminAdmin
+
 py -3 manage.py runserver
+
 --http://127.0.0.1:8000/
 --para abrir el vinculo Ctrl+Click
 par salir de runserver
