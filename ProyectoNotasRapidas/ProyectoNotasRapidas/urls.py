@@ -32,10 +32,11 @@ urlpatterns = [
 urlpatterns += [
     path('api-token-auth/', views.obtain_auth_token)
 ]
-urlpatterns += [
-    path('accounts/', include('django.contrib.auth.urls')),]
 
-"""Add Django site authentication urls (for login, logout, password management)
+urlpatterns += [
+    path('', include('django.contrib.auth.urls')),]
+"""
+Add Django site authentication urls (for login, logout, password management)
 urlpatterns += [
     path('accounts/', include('django.contrib.auth.urls')),
 ]"""

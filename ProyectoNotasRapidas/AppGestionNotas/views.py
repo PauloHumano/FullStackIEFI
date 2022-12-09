@@ -69,7 +69,7 @@ def profile(request):
 
 
 def show_index(request):
-    render(request, 'base/index.html')
+    return render(request, 'base/index.html')
 
 # login, logout, loginRequiredMixin
 
