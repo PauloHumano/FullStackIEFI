@@ -14,6 +14,7 @@ py -m pip --version
 py -m pip list
 py -m pip install virtualenv
 py -m virtualenv env
+
 source env/Scripts/activate
 
 --instalar biblioteca pip

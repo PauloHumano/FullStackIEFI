@@ -28,5 +28,5 @@ urlpatterns = [
     path('edicionNota/<timestamp>', views.edicionNota, name='edicionNota'),
     path('eliminarNota/<timestamp>', views.eliminarNota, name='eliminarNota'),
     path('editarNota/', views.editarNota, name='editarNota'),
-    path('register/', views.register, name='register'),
+    path('register/', RegistroUsuario.as_view(), name='register'),
 ]

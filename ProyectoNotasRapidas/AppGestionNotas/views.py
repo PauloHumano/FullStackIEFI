@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, CreateView
 
 from rest_framework import generics
 from rest_framework.response import Response
@@ -17,7 +17,6 @@ from .serializers import *
 """
 from django.http import HttpResponse, HttpResponseRedirect
 from django.decorators.csrf import csrf_protect
-from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.decorators import never_cache
 
@@ -32,6 +31,20 @@ def home(request):
     return render(request, 'base/index.html')
 
 
+class Main(LoginRequiredMixin, TemplateView):
+    login_url = reverse_lazy('login')
+    template_name = 'main.html'
+
+
+class Login(LoginView):
+    next_page = reverse_lazy('main')
+    template_name = 'login.html'
+
+
+class Logout(LogoutView):
+    next_page = reverse_lazy('login')
+
+
 def gestionNota(request):
     notas = Nota.objects.all()
     context = {'notas': notas}
@@ -39,13 +52,13 @@ def gestionNota(request):
 
 
 def registrarNota(request):
-    username = request.POST['username']
-    timestamp = request.POST['timestamp']
+    #username = request.POST['username']
+    #timestamp = request.POST['timestamp']
     content = request.POST['content']
+    # username=username,
+    # timestamp=timestamp,
 
-    nota = Nota.objects(
-        username=username,
-        timestamp=timestamp,
+    Nota.objects.save(
         content=content
     )
     return redirect('/')
@@ -84,13 +97,20 @@ def feed(request):
     return render(request, 'AppGestionNotas/feed.html', context)
 
 
+class RegistroUsuario(CreateView):
+    model = User
+    template_name = 'AppGestionNotas/register.html'
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+
+
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             username = form.cleaned_data['username']
             messages.success(request, f'Usuario {username} creado')
-            return redirect('feed')
+            return redirect('main')
     else:
         form = UserRegisterForm()
 
@@ -117,20 +137,6 @@ def profile(request):
     return render(request, 'AppGestionNotas/profile.html')
 
 # login, logout, loginRequiredMixin
-
-
-class Login(LoginView):
-    next_page = reverse_lazy('main')
-    template_name = 'login.html'
-
-
-class Logout(LogoutView):
-    next_page = reverse_lazy('login')
-
-
-class Main(LoginRequiredMixin, TemplateView):
-    login_url = reverse_lazy('login')
-    template_name = 'main.html'
 
 
 class UserAPIVIEW(APIView):
