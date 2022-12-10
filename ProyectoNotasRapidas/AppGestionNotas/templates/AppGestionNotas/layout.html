@@ -24,38 +24,28 @@
       </nav>
     </header>
     
-	<!-------------------------------------
-					Messages 
-	-------------------------------------->
 
-	<!-------------------------------------
-					Navigation Bar 
-	-------------------------------------->
 	<div class="main">
 		
-		<nav class="second-nav">
-			<a class="feed" href="#">Inicio</a>
-			<a class="profile" href="#">Mi Perfil</a>
-			<a class="new" href="#">Crear nuevo post</a>
-		</nav>
-  <div>
-  {% block content %}
-  {% csrf_token %}{{form.as_p}}
 
-  {% if request.user.is_authenticated %}
-  {% if messages %} {% for message in messages %}
-
-  <div class="notification {{ message.tags}}"></div>
-
-  {% endfor %} {% endif %} 
-  {% endif %}
-
-  {% endblock content %}
+    {% block content %}
+    {% csrf_token %}{{form.as_p}}
+    
+    {% if request.user.is_authenticated %}
+    {% if messages %} {% for message in messages %}
+    
+    <div class="notification {{ message.tags}}"></div>
+    
+    {% endfor %} {% endif %} 
+    {% endif %}
+    
+    {% endblock content %}
+    </div>
   </div>
   <footer>
-      <div class="row">
-        <p>Pagina con Django<br />hecha por: Paulo Humano</p>
-      </div>
-    </footer>
-  </body>
+    <div class="row">
+      <p>Pagina con Django<br />hecha por: Paulo Humano</p>
+    </div>
+  </footer>
+</body>
 </html>
