@@ -28,22 +28,22 @@ from AppGestionNotas.serializers import *
 # Create your views here.
 
 
-def show_index(request):
+def home(request):
     return render(request, 'base/index.html')
 
 
-def gestionrapida(request):
+def gestionNota(request):
     notas = Nota.objects.all()
     context = {'notas': notas}
-    return render(request, "AppGestionNotas/gestionrapida.html", context)
+    return render(request, "AppGestionNotas/gestionNota.html", context)
 
 
 def registrarNota(request):
-    username = request.post['username']
+    username = request.POST['username']
     timestamp = request.POST['timestamp']
     content = request.POST['content']
 
-    nota = Nota.objects.create(
+    nota = Nota.objects(
         username=username,
         timestamp=timestamp,
         content=content
@@ -51,19 +51,18 @@ def registrarNota(request):
     return redirect('/')
 
 
-def edicionNota(request, username):
-    username = request.post['username']
-    nota = Nota.objects.get(username=username)
+def edicionNota(request, timestamp):
+    nota = Nota.objects.get(timestamp=timestamp)
     context = {"nota": nota}
     return render(request, "edicionNota.html", context)
 
 
 def editarNota(request):
-    username = request.post['username']
+    username = request.POST['username']
     timestamp = request.POST['timestamp']
     content = request.POST['content']
 
-    nota = Nota.objects.get(username=username)
+    nota = Nota.objects.get(username, timestamp=timestamp, content=content)
     nota.timestamp = timestamp
     nota.content = content
     nota.save()
@@ -71,9 +70,9 @@ def editarNota(request):
     return redirect('/')
 
 
-def eliminarNota(request, username):
-    nota = Nota.objects.get(username=username)
-    Nota.delete()
+def eliminarNota(request, timestamp):
+    nota = Nota.objects.get(timestamp=timestamp)
+    nota.delete()
 
     return redirect('/')
 

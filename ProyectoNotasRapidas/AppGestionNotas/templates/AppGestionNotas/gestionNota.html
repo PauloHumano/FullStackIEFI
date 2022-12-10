@@ -5,7 +5,7 @@ GestionNotasRapidas {% endblock %} {% block body %}
     <h2>Crear aqui</h2>
     <div class="card">
       <div class="card-body">
-        <form action="/registrarNota" method="POST">
+        <form action="/registrarNota/" method="POST">
           {% csrf_token %}{{form.as_p}}
           <div class="form-group">
             <input
@@ -22,7 +22,7 @@ GestionNotasRapidas {% endblock %} {% block body %}
               type="datetime-local"
               id="datetimestamp"
               name="datetimestamp"
-              value="{{nota.datetimestamp}}"
+              value="{datetime-local}"
               class="form-control"
               placeholder="datetimestamp"
               required />
@@ -64,14 +64,10 @@ GestionNotasRapidas {% endblock %} {% block body %}
             <td>{{ nota.timestamp }}</td>
             <td>{{ nota.content }}</td>
             <td>
-              <a
-                href="edicion de nota/{{nota.notas.user.username}}"
-                class="btn btn-info"
+              <a href="/edicionNota/{{nota.timestamp}}" class="btn btn-info"
                 >Editar</a
               >
-              <a
-                href="elininacion de nota/{{nota.notas.user.username}}"
-                class="btn btn-danger"
+              <a href="elininarNota/{{nota.timestamp}}" class="btn btn-danger"
                 >Eliminar</a
               >
             </td>

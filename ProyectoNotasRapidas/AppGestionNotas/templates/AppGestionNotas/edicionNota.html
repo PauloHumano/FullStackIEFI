@@ -5,14 +5,14 @@ Notas Rapidas de {% endblock %} {% block body %}
     <h2>{{user.username}} estas editando aqui</h2>
     <div class="card">
       <div class="card-body">
-        <form action="/editarNota" method="POST">
+        <form action="/editarNota/" method="POST">
           {% csrf_token %}{{form.as_p}}
           <div class="form-group">
             <input
               type="username"
               id="username"
               name="username"
-              value="{{nota.username}}"
+              value="{{user.username}}"
               class="form-control"
               placeholder="username"
               readonly />
