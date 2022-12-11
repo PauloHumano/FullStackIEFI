@@ -2,35 +2,26 @@
 GestionNotasRapidas {% endblock %} {% block body %}
 <div class="row">
   <div class="col-sm12 col-md6 col-lg4 col-xl-4">
-    <h2>Crear aqui</h2>
+    <h2>Crear aqui{{ user.username }}</h2>
     <div class="card">
       <div class="card-body">
         <form action="/registrarNota/" method="POST">
-          {% csrf_token %}{{form.as_p}}
+          {% csrf_token %}
           <div class="form-group">
             <input
-              type="username"
-              id="username"
-              name="username"
-              value="{{user.username}}"
+              type="text"
+              id="txtuser"
+              name="txtuser"
+              value="{{user.id}}"
               class="form-control"
-              placeholder="username"
+              placeholder="{{user.id}}"
               readonly />
           </div>
-          <div>
-            <input
-              type="datetime-local"
-              id="datetimestamp"
-              name="datetimestamp"
-              value="{datetime-local}"
-              class="form-control"
-              placeholder="datetimestamp" />
-          </div>
           <div class="form-group">
             <input
-              type="content"
-              id="conten"
-              name="content"
+              type="text"
+              id="txtconten"
+              name="txtcontent"
               class="form-control"
               placeholder="content"
               required />
@@ -51,6 +42,7 @@ GestionNotasRapidas {% endblock %} {% block body %}
         <thead>
           <tr>
             <th>#</th>
+            <th>user</th>
             <th>timestamp</th>
             <th>content</th>
             <th colspan="2">opciones</th>
@@ -60,9 +52,11 @@ GestionNotasRapidas {% endblock %} {% block body %}
           {%for nota in notas%}
           <tr>
             <td>{{forloop.counter}}</td>
+            <td>{{ nota.user }}</td>
             <td>{{ nota.timestamp }}</td>
             <td>{{ nota.content }}</td>
             <td>
+              {% csrf_token %}
               <a href="/edicionNota/{{nota.timestamp}}" class="btn btn-info"
                 >Editar</a
               >

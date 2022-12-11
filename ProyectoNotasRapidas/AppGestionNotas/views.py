@@ -31,19 +31,18 @@ from AppGestionNotas.serializers import *
 def gestionNota(request):
     notas = Nota.objects.all()
     context = {'notas': notas}
-    return render(request, "AppGestionNotas/gestionNota.html", context)
+    return render(
+        request,
+        "AppGestionNotas/gestionNota.html",
+        context)
 
 
 def registrarNota(request):
-    #username = request.POST['username']
-    #timestamp = request.POST['timestamp']
-    content = request.POST['content']
-    # username=username,
-    # timestamp=timestamp,
+    user = request.POST['txtuser']
+    content = request.POST['txtcontent']
 
-    Nota.objects.save(
-        content=content
-    )
+    Nota.objects.create(user_id=user, content=content)
+
     return redirect('/')
 
 
