@@ -14,3 +14,6 @@ https://www.youtube.com/watch?v=zGXvcxQ6sSw
  Renderizado básico de un template en Django
  
 
+ este es para actualizar registro de usuarios
+https://www.youtube.com/watch?v=0htfP3kwqns
+Sistema de Registro de usuarios en Django 4.1
