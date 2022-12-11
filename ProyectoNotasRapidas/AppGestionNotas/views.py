@@ -43,7 +43,7 @@ def registrarNota(request):
 
     Nota.objects.create(user_id=user, content=content)
 
-    return redirect('/')
+    return redirect('gestionNota')
 
 
 def edicionNota(request, timestamp):
