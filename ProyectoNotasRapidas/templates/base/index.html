@@ -3,21 +3,21 @@
   <h1 class="text-center">Bienvenido a la pagina de NOTAS RAPIDAS</h1>
   <br />
   <p class="text-center">
-    <button id="ButtonLogin" class="float-left submit-button">
-      Ingresar al LOGIN
-    </button>
-
-    <script type="text/javascript">
-      document.getElementById("ButtonLogin").onclick = function () {
-        location.href = "{% url 'login' %}";
-      };
-    </script>
+    <div>
+      <button id="ButtonLogin" class="float-left submit-button">
+        Ingresar al LOGIN
+      </button>
+      <script type="text/javascript">
+        document.getElementById("ButtonLogin").onclick = function () {
+          location.href = "{% url 'login' %}";
+        };
+      </script>
+      <button id="ButtonRegister" class="float-left submit-button">
+        o Registrate
+      </button>
+    </div>
   </p>
-  <p class="text-center">
-    <button id="ButtonRegister" class="float-left submit-button">
-      o Registrate
-    </button>
-
+      
     <script type="text/javascript">
       document.getElementById("ButtonRegister").onclick = function () {
         location.href = "{% url 'register' %}";
