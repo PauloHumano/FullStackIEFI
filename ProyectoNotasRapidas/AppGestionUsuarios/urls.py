@@ -19,12 +19,11 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
-from AppGestionNotas.views import *
+from AppGestionUsuarios.views import *
+
 from . import views
 
 urlpatterns = [
-    path('registrarNota/', views.registrarNota, name='registrarNota'),
-    path('edicionNota/<timestamp>', views.edicionNota, name='edicionNota'),
-    path('eliminarNota/<timestamp>', views.eliminarNota, name='eliminarNota'),
-    path('editarNota/', views.editarNota, name='editarNota'),
+    path('', views.home, name='home'),
+    path('register/', RegistroUsuario.as_view(), name='register'),
 ]

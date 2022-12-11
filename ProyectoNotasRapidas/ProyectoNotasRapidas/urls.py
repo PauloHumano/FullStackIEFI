@@ -16,12 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from AppGestionNotas.views import *
+from AppGestionUsuarios.views import *
 
 from rest_framework.authtoken import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('AppGestionNotas.urls')),
+    path('', include('AppGestionUsuarios.urls')),
     path('login/', Login.as_view(), name='login'),
     path('post/', Nota, name='post'),
     path('gestionNota/', gestionNota, name='gestionNota'),

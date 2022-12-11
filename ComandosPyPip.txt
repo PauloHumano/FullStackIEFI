@@ -48,7 +48,9 @@ py -3 -m pip install djangorestframework
 py -3 pip install mysqlclient
 https://pypi.org/project/mysqlclient/
 
-$ py -3 manage.py startapp heroes
+$ py -3 manage.py startapp AppGestionNotas
+$ py -3 manage.py startapp AppGestionUsuarios
+
 $ py -3 manage.py makemigrations
 $ py -3 manage.py migrate
 py -3 manage.py runserver

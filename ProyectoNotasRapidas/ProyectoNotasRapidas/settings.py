@@ -44,6 +44,7 @@ BASE_APPS = [
 
 LOCAL_APPS = [
     'AppGestionNotas.apps.AppGestionNotasConfig',
+    'AppGestionUsuarios.apps.AppGestionUsuariosConfig',
 
 ]
 

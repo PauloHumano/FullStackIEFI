@@ -12,6 +12,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .forms import UserRegisterForm, PostForm
 from .models import *
+from AppGestionUsuarios.models import *
 from .serializers import *
 
 """
@@ -25,24 +26,6 @@ from AppGestionNotas.serializers import *
 """
 
 # Create your views here.
-
-
-def home(request):
-    return render(request, 'base/index.html')
-
-
-class Main(LoginRequiredMixin, TemplateView):
-    login_url = reverse_lazy('login')
-    template_name = 'main.html'
-
-
-class Login(LoginView):
-    next_page = reverse_lazy('main')
-    template_name = 'login.html'
-
-
-class Logout(LogoutView):
-    next_page = reverse_lazy('login')
 
 
 def gestionNota(request):
@@ -90,34 +73,6 @@ def eliminarNota(request, timestamp):
     return redirect('/')
 
 
-def feed(request):
-    notas = Nota.objects.all()
-
-    context = {'notas': notas}
-    return render(request, 'AppGestionNotas/feed.html', context)
-
-
-class RegistroUsuario(CreateView):
-    model = User
-    template_name = 'AppGestionNotas/register.html'
-    form_class = UserCreationForm
-    success_url = reverse_lazy('login')
-
-
-def register(request):
-    if request.method == 'POST':
-        form = UserRegisterForm(request.POST)
-        if form.is_valid():
-            username = form.cleaned_data['username']
-            messages.success(request, f'Usuario {username} creado')
-            return redirect('main')
-    else:
-        form = UserRegisterForm()
-
-    context = {'form': form}
-    return render(request, 'appgestionnotas/register.html', context)
-
-
 def post(request):
     current_user = get_object_or_404(User, pk=request.user.pk)
     if request.method == 'POST':
@@ -131,22 +86,3 @@ def post(request):
     else:
         form = PostForm()
     return render(request, 'appgestionnotas/register.html', {'form': form})
-
-
-def profile(request):
-    return render(request, 'AppGestionNotas/profile.html')
-
-# login, logout, loginRequiredMixin
-
-
-class UserAPIVIEW(APIView):
-
-    def get(self, request):
-        users = User.objects.all()
-        users_serializer = UserSerializer(users, many=True)
-        return Response(users_serializer.data)
-
-
-class UserList(generics.ListCreateAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
