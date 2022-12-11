@@ -41,7 +41,7 @@ GestionNotasRapidas {% endblock %} {% block body %}
       <table class="table table-striped">
         <thead>
           <tr>
-            <th>#</th>
+            <th>id</th>
             <th>user</th>
             <th>timestamp</th>
             <th>content</th>
@@ -51,16 +51,14 @@ GestionNotasRapidas {% endblock %} {% block body %}
         <tbody>
           {%for nota in notas%}
           <tr>
-            <td>{{forloop.counter}}</td>
+            <td>{{ nota.id }}</td>
             <td>{{ nota.user }}</td>
             <td>{{ nota.timestamp }}</td>
             <td>{{ nota.content }}</td>
             <td>
               {% csrf_token %}
-              <a href="/edicionNota/{{nota.timestamp}}" class="btn btn-info"
-                >Editar</a
-              >
-              <a href="elininarNota/{{nota.timestamp}}" class="btn btn-danger"
+              <a href="/edicionNota/{{nota.id}}" class="btn btn-info">Editar</a>
+              <a href="/eliminarNota/{{nota.id}}" class="btn btn-danger"
                 >Eliminar</a
               >
             </td>

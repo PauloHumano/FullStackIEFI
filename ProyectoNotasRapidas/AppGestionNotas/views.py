@@ -65,11 +65,11 @@ def editarNota(request):
     return redirect('/')
 
 
-def eliminarNota(request, timestamp):
-    nota = Nota.objects.get(timestamp=timestamp)
+def eliminarNota(request, id):
+    nota = Nota.objects.get(id=id)
     nota.delete()
 
-    return redirect('/')
+    return redirect('gestionNota')
 
 
 def post(request):
