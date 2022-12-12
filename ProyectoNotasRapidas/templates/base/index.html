@@ -12,18 +12,19 @@
           location.href = "{% url 'login' %}";
         };
       </script>
+    
       <button id="ButtonRegister" class="float-left submit-button">
         o Registrate
       </button>
+      <script type="text/javascript">
+        document.getElementById("ButtonRegister").onclick = function () {
+          location.href = "{% url 'register' %}";
+        };
+      </script>
+      
     </div>
   </p>
       
-    <script type="text/javascript">
-      document.getElementById("ButtonRegister").onclick = function () {
-        location.href = "{% url 'register' %}";
-      };
-    </script>
-  </p>
 </div>
 {% endblock %} {% block content %}
 <h1>Logueate o Registrate</h1>
