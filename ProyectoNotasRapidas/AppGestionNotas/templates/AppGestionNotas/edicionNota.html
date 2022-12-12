@@ -6,32 +6,22 @@ Notas Rapidas de {% endblock %} {% block body %}
     <div class="card">
       <div class="card-body">
         <form action="/editarNota/" method="POST">
-          {% csrf_token %}{{form.as_p}}
+          {% csrf_token %}
           <div class="form-group">
             <input
-              type="username"
-              id="username"
-              name="username"
-              value="{{user.username}}"
+              type="text"
+              id="txtuser"
+              name="txtuser"
+              value="{{nota.id}}"
               class="form-control"
-              placeholder="username"
+              placeholder="{{nota.id}}"
               readonly />
           </div>
           <div class="form-group">
             <input
-              type="datetimestamp"
-              id="datetimestamp"
-              name="datetimestamp"
-              value="{{nota.datetimestamp}}"
-              class="form-control"
-              placeholder="datetimestamp"
-              required />
-          </div>
-          <div class="form-group">
-            <input
-              type="content"
-              id="conten"
-              name="content"
+              type="text"
+              id="txtconten"
+              name="txtcontent"
               value="{{nota.content}}"
               class="form-control"
               placeholder="content"

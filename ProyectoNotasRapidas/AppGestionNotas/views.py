@@ -46,28 +46,26 @@ def registrarNota(request):
     return redirect('gestionNota')
 
 
-def edicionNota(request, timestamp):
-    nota = Nota.objects.get(timestamp=timestamp)
-    context = {"nota": nota}
-    return render(request, "edicionNota.html", context)
-
-
-def editarNota(request):
-    username = request.POST['username']
-    timestamp = request.POST['timestamp']
-    content = request.POST['content']
-
-    nota = Nota.objects.get(username, timestamp=timestamp, content=content)
-    nota.timestamp = timestamp
-    nota.content = content
-    nota.save()
-
-    return redirect('/')
+def edicionNota(request, id):
+    nota = Nota.objects.get(id=id)
+    return render(request, "AppGestionNotas/edicionNota.html", {"nota": nota})
 
 
 def eliminarNota(request, id):
     nota = Nota.objects.get(id=id)
     nota.delete()
+
+    return redirect('gestionNota')
+
+
+def editarNota(request):
+    id = request.POST['txtuser']
+    content = request.POST['txtcontent']
+
+    nota = Nota.objects.get(id=id)
+    nota.id = id
+    nota.content = content
+    nota.save()
 
     return redirect('gestionNota')
 

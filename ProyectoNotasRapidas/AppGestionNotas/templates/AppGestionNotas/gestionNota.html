@@ -12,9 +12,9 @@ GestionNotasRapidas {% endblock %} {% block body %}
               type="text"
               id="txtuser"
               name="txtuser"
-              value="{{user.id}}"
+              value="{{nota.id}}"
               class="form-control"
-              placeholder="{{ user.username }}"
+              placeholder="{{nota.id}}"
               readonly />
           </div>
           <div class="form-group">
@@ -22,8 +22,9 @@ GestionNotasRapidas {% endblock %} {% block body %}
               type="text"
               id="txtconten"
               name="txtcontent"
+              value="{{nota.content}}"
               class="form-control"
-              placeholder="content"
+              placeholder="{{nota.content}}"
               required />
           </div>
           <div class="form-group">
