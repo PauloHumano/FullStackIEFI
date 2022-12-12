@@ -34,12 +34,12 @@ class Login(LoginView):
 
 
 class Logout(LogoutView):
-    next_page = reverse_lazy('login')
+    next_page = reverse_lazy('index')
 
 
 class RegistroUsuario(CreateView):
     model = User
-    template_name = 'AppGestionNotas/register.html'
+    template_name = 'AppGestionUsuarios/register.html'
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
 
@@ -48,14 +48,15 @@ def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():
+            form.save()
             username = form.cleaned_data['username']
             messages.success(request, f'Usuario {username} creado')
-            return redirect('main')
+            return redirect('login')
     else:
         form = UserRegisterForm()
 
     context = {'form': form}
-    return render(request, 'appgestionnotas/register.html', context)
+    return render(request, 'AppGestionUsuarios/register.html', context)
 
 
 def profile(request):

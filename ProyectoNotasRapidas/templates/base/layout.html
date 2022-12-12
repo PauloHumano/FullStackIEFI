@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href={% static 'style.css' %} />
   </head>
   <body>
-
     <header class="main-head">
       <nav class="main">
         <h1 id="logo">Hola</h1>
@@ -23,29 +22,24 @@
         </ul>
       </nav>
     </header>
+
+    {% if request.user.is_authenticated %} {% if
+      message %} {% for message in messages %}
+      <div class="notification {{message.tag}}">{{mesagge}}</div>
+      {% endfor %} {% else %}{% endif %}
+    </div>
+  </div>  
+  <div class="main">
     
-
-	<div class="main">
-		
-
     {% block content %}
     {% csrf_token %}{{form.as_p}}
     
-    {% if request.user.is_authenticated %}
-    {% if messages %} {% for message in messages %}
+    {% endblock %}
     
-    <div class="notification {{ message.tags}}"></div>
-    
-    {% endfor %} {% endif %} 
-    {% endif %}
-    
-    {% endblock content %}
-    </div>
   </div>
   <footer>
     <div class="row">
       <p>Pagina con Django<br />hecha por: Paulo Humano</p>
-    </div>
-  </footer>
-</body>
+    </footer>
+  </body>
 </html>

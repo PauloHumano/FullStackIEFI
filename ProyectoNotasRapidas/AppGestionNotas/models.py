@@ -6,10 +6,9 @@ from django.utils import timezone
 # ClassPost --- ClassNota
 
 
-
 class Nota(models.Model):
     user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='usernotas')
+        User, on_delete=models.CASCADE, related_name='notas')
     timestamp = models.DateTimeField(default=timezone.now)
     content = models.TextField()
 

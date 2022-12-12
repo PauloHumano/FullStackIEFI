@@ -24,12 +24,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('AppGestionNotas.urls')),
     path('', include('AppGestionUsuarios.urls')),
-    path('login/', Login.as_view(), name='login'),
-    path('post/', Nota, name='post'),
+    path('login/', Login.as_view(template_name='login.html'), name='login'),
+    path('logout/', Logout.as_view(template_name='logout.html'), name='logout'),
     path('gestionNota/', gestionNota, name='gestionNota'),
-    path('logout/', Logout.as_view(), name='logout'),
-    path('main/', Main.as_view(), name='main'),]
-
+    path('main/', Main.as_view(), name='main'),
+]
 urlpatterns += [
     path('api-token-auth/', views.obtain_auth_token)
 ]
