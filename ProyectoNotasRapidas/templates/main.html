@@ -1,19 +1,43 @@
 {% extends 'base/base.html' %} {% block body %}
 <div class="container p-5">
-  <h1 class="text-center">Bienvenido {{user.username}}!!</h1>
-  {% csrf_token %} {{form.as_p}}
+  <h1 class="text-center">
+    Bienvenido {{user.username}} usuario nº {{user.id}}!!
+  </h1>
   <br />
   <p class="text-center">
-    <button id="myButton" class="float-left submit-button">
+    {% csrf_token %} {{form.as_p}}
+    <br />
+    <button id="my1Button" class="float-left submit-button">
       Ir a Gestion Nota
     </button>
-
     <script type="text/javascript">
-      document.getElementById("myButton").onclick = function () {
+      document.getElementById("my1Button").onclick = function () {
         location.href = "{% url 'gestionNota' %}";
       };
     </script>
-
+    <br />
+    <button id="my2Button" class="float-left submit-button">
+      Ir a Crear Nota
+    </button>
+    <script type="text/javascript">
+      document.getElementById("my2Button").onclick = function () {
+        location.href = "{% url 'gestionCrear' %}";
+      };
+    </script>
+    <br />
+    <button id="my3Button" class="float-left submit-button">
+      Ir a Listar Nota
+    </button>
+    <script type="text/javascript">
+      document.getElementById("my3Button").onclick = function () {
+        location.href = "{% url 'gestionListar' %}";
+      };
+    </script>
+    <br />
+    <a href="/registrarNota/" class="btn btn-info">Crear Nota</a>
+    <br />
+    <a href="/listadoNota/{{user.id}}" class="btn btn-info">Listar Nota</a>
+    <br />
     <a class="text-secondary" href="{% url 'home' %}">Cerrar Sesion</a>
   </p>
 </div>

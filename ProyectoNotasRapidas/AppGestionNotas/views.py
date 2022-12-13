@@ -37,13 +37,28 @@ def gestionNota(request):
         context)
 
 
+def gestionListar(request):
+    notas = Nota.objects.all()
+    context = {'notas': notas}
+    return render(
+        request,
+        "AppGestionNotas/gestionListarNota.html",
+        context)
+
+
 def registrarNota(request):
     user = request.POST['txtuser']
     content = request.POST['txtcontent']
 
     Nota.objects.create(user_id=user, content=content)
 
-    return redirect('gestionNota')
+    return redirect('gestionListarNota')
+
+
+def listadoNota(request, id):
+    notas = Nota.objects.filter(user_id=id)
+    context = {"notas": notas}
+    return render(request, "gestionListarNota.html", context)
 
 
 def edicionNota(request, id):
@@ -55,7 +70,7 @@ def eliminarNota(request, id):
     nota = Nota.objects.get(id=id)
     nota.delete()
 
-    return redirect('gestionNota')
+    return redirect('main')
 
 
 def editarNota(request):
@@ -67,7 +82,7 @@ def editarNota(request):
     nota.content = content
     nota.save()
 
-    return redirect('gestionNota')
+    return redirect('main')
 
 
 def post(request):

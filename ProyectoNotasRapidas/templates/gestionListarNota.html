@@ -1,0 +1,39 @@
+{% extends "base/base.html" %}{% load static %} {% block title %}
+GestionNotasRapidas {% endblock %} {% block body %}{% csrf_token %}
+{{form.as_p}}
+<div class="row">
+  <div class="col-sm12 col-md6 col-lg8 col-xl-8">
+    <h1>Listado de Notas de {{user.username}}</h1>
+    <div class="table-responsive" py-2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>user</th>
+            <th>timestamp</th>
+            <th>content</th>
+            <th colspan="2">opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for nota in notas%}
+          <tr>
+            <td>{{ nota.id }}</td>
+            <td>{{ nota.user }}</td>
+            <td>{{ nota.timestamp }}</td>
+            <td>{{ nota.content }}</td>
+            <td>
+              {% csrf_token %}
+              <a href="/edicionNota/{{nota.id}}" class="btn btn-info">Editar</a>
+              <a href="/eliminarNota/{{nota.id}}" class="btn btn-danger"
+                >Eliminar</a
+              >
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -24,6 +24,7 @@ from . import views
 
 urlpatterns = [
     path('registrarNota/', views.registrarNota, name='registrarNota'),
+    path('listadoNota/<id>', views.listadoNota, name='listadoNota'),
     path('edicionNota/<id>', views.edicionNota, name='edicionNota'),
     path('eliminarNota/<id>', views.eliminarNota, name='eliminarNota'),
     path('editarNota/', views.editarNota, name='editarNota'),

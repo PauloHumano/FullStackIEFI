@@ -27,6 +27,8 @@ urlpatterns = [
     path('login/', Login.as_view(template_name='login.html'), name='login'),
     path('logout/', Logout.as_view(template_name='logout.html'), name='logout'),
     path('gestionNota/', gestionNota, name='gestionNota'),
+    path('gestionCrear/', registrarNota, name='gestionCrear'),
+    path('gestionListar/', gestionListar, name='gestionListar'),
     path('main/', Main.as_view(), name='main'),
 ]
 urlpatterns += [

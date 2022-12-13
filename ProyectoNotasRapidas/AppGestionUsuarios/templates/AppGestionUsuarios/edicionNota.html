@@ -17,6 +17,18 @@ Notas Rapidas de {% endblock %} {% block body %}
               placeholder="{{nota.id}}"
               readonly />
           </div>
+
+          <div class="form-group">
+            <input
+              type="text"
+              id="txtimestamp"
+              name="txtimestamp"
+              value="{{nota.timestamp}}"
+              class="form-control"
+              placeholder="{{nota.timestamp}}"
+              readonly />
+          </div>
+
           <div class="form-group">
             <input
               type="text"
