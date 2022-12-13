@@ -29,8 +29,7 @@ from AppGestionNotas.serializers import *
 
 
 def gestionNota(request):
-    user = request.POST['txtuser']
-    notas = Nota.objects.filter(user_id=user)
+    notas = Nota.objects.all()
     context = {'notas': notas}
     return render(
         request,
