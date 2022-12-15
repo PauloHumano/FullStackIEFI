@@ -25,6 +25,11 @@ class Main(LoginRequiredMixin, TemplateView):
     login_url = reverse_lazy('login')
     template_name = 'main.html'
 
+
+class gestionCrearNota(LoginRequiredMixin, TemplateView):
+    login_url = reverse_lazy('main')
+    template_name = 'getionCrearNota.html'
+
 # login, logout, loginRequiredMixin
 
 

@@ -13,17 +13,6 @@ from rest_framework.views import APIView
 from .forms import UserRegisterForm, PostForm
 from .models import *
 from AppGestionUsuarios.models import *
-from .serializers import *
-
-"""
-from django.http import HttpResponse, HttpResponseRedirect
-from django.decorators.csrf import csrf_protect
-from django.utils.decorators import method_decorator
-from django.views.decorators import never_cache
-
-
-from AppGestionNotas.serializers import *
-"""
 
 # Create your views here.
 
@@ -52,7 +41,7 @@ def registrarNota(request):
 
     Nota.objects.create(user_id=user, content=content)
 
-    return redirect('gestionListarNota')
+    return redirect('main')
 
 
 def listadoNota(request, id):

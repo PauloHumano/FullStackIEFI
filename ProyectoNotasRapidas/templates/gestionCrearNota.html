@@ -1,34 +1,23 @@
-{% extends "base/base.html" %}{% load static %} {% block title %} Edicion de
-Notas Rapidas de {% endblock %} {% block body %}
+{% extends "base/base.html" %}{% load static %} {% block title %}
+GestionCargarNotasRapidas {% endblock %} {% block body %}{% csrf_token %}
+{{form.as_p}}
 <div class="row">
-  <div class="col-md4 offset-md-4">
-    <h2>{{user.username}} estas editando aqui</h2>
+  <div class="col-sm12 col-md6 col-lg4 col-xl-4">
+    <h2>Agrega una Nota {{ user.username }}</h2>
     <div class="card">
       <div class="card-body">
-        <form action="/editarNota/" method="POST">
+        <form action="/registrarNota/" method="POST">
           {% csrf_token %}
           <div class="form-group">
             <input
               type="text"
               id="txtuser"
               name="txtuser"
-              value="{{nota.id}}"
+              value="{{user.id}}"
               class="form-control"
-              placeholder="{{nota.id}}"
+              placeholder="{{user.id}}"
               readonly />
           </div>
-
-          <div class="form-group">
-            <input
-              type="text"
-              id="txtimestamp"
-              name="txtimestamp"
-              value="{{nota.timestamp}}"
-              class="form-control"
-              placeholder="{{nota.timestamp}}"
-              readonly />
-          </div>
-
           <div class="form-group">
             <input
               type="text"
@@ -36,7 +25,7 @@ Notas Rapidas de {% endblock %} {% block body %}
               name="txtcontent"
               value="{{nota.content}}"
               class="form-control"
-              placeholder="content"
+              placeholder="{{nota.content}}"
               required />
           </div>
           <div class="form-group">
@@ -48,5 +37,5 @@ Notas Rapidas de {% endblock %} {% block body %}
       </div>
     </div>
   </div>
-  {% endblock %}
 </div>
+{% endblock %}
